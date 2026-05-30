@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Under Maintenance</title>
+    <!-- Import Cairo Font for Modern Arabic Typography -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cairo:wght@600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        /* Container Layout */
+        .maintenance-container {
+            padding: 20px;
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        /* Animated Gear Graphic */
+        .gear-container {
+            margin-bottom: 30px;
+        }
+        .gear {
+            font-size: 80px;
+            display: inline-block;
+            animation: spin 4s linear infinite;
+            color: #58a6ff;
+        }
+
+        /* Modern Arabic Name Styling & Animation */
+        .brand-name-arabic {
+            font-family: 'Cairo', sans-serif;
+            font-size: 3.5rem; /* Slightly larger for Arabic script clarity */
+            font-weight: 800;
+            direction: rtl; /* Ensures proper Arabic text rendering direction */
+            letter-spacing: 0px; /* Arabic looks best without letter spacing */
+            background: linear-gradient(45deg, #58a6ff, #bc8cff, #58a6ff);
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s linear infinite;
+            margin-bottom: 15px;
+        }
+
+        /* Heading and Text */
+        h1 {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 1.1rem;
+            color: #8b949e;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* Pulsing Status Dot */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: #161b22;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid #30363d;
+            font-size: 0.9rem;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: #238636;
+            border-radius: 50%;
+            margin-right: 10px;
+            box-shadow: 0 0 0 0 rgba(35, 134, 54, 0.7);
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Keyframe Animations */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(35, 134, 54, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(35, 134, 54, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(35, 134, 54, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="maintenance-container">
+        <!-- Animated Icon -->
+        <div class="gear-container">
+            <div class="gear">⚙️</div>
+        </div>
+
+        <!-- Custom Arabic Name (Replace 'أحمد' with your name) -->
+        <div class="brand-name-arabic">الفقير إلى الله</div>
+
+        <!-- Maintenance Messages -->
+        <h1>We'll Be Back Soon</h1>
+        <p>Our website is currently undergoing scheduled maintenance to improve your experience. We apologize for the inconvenience and appreciate your patience.</p>
+
+        <!-- Live Status Indicator -->
+        <div class="status-badge">
+            <span class="dot"></span>
+            System upgrade in progress
+        </div>
+    </div>
+
+</body>
+</html>
