@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Curriculum Vitae of Ahmad Amzar, Information Systems student at UiTM." />
+  <meta name="keywords" content="CV, resume, Ahmad Amzar, UiTM, education, skills, IMS 458" />
+  <meta name="author" content="Ahmad Amzar" />
+  <title>My Resume Website &mdash; CV</title>
+</head>
+
+<body bgcolor="#eeffee">
+
+<table border="0"
+       width="80%"
+       align="center"
+       cellspacing="0"
+       cellpadding="0">
+
+
+  <!-- ========== ROW 1 : HEADER ========== -->
+  <tr>  
+    <td colspan="2" align="center" bgcolor="#1a3a2e">
+
+      <br />
+      <img src="images/banner.png"
+           width="100%"
+           height="220"
+           alt="Ahmad Amzar Personal Resume Website Banner" />
+      <h1 align="left"><font face="Arial" color="#00e08a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MUHAMMAD AMZAR MUKMIN</font></h1>
+      <p align="left"><font face="Arial" size="3" color="#7fcca8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Bachelor of Information Systems Management &nbsp;&bull;&nbsp;
+        Universiti Teknologi MARA (UiTM) &nbsp;&bull;&nbsp;
+        Group SI2622A
+      </font></p>
+      <br />
+
+    </td>
+  </tr>
+
+
+  <!-- ========== ROW 2 : NAV BAR ========== -->
+  <tr>
+    <td colspan="2" bgcolor="#0f2a1e">
+      <table width="100%" cellspacing="0" cellpadding="10" border="0">
+        <tr align="center">
+          <td width="20%">
+            <a href="index.html" style="text-decoration: none;"><font face="Arial" size="2" color="#5ecf99">Home</font></a>
+          </td>
+          <td bgcolor="#00e08a" width="20%">
+            <a href="cv.html" style="text-decoration: none;"><font face="Arial" size="2" color="#003322"><b>CV</b></font></a>
+          </td>
+          <td width="20%">
+            <a href="cocurriculum.html" style="text-decoration: none;"><font face="Arial" size="2" color="#5ecf99">Co-curriculum</font></a>
+          </td>
+          <td width="20%">
+            <a href="portfolio.html" style="text-decoration: none;"><font face="Arial" size="2" color="#5ecf99">Portfolio</font></a>
+          </td>
+          <td width="20%">
+            <a href="aboutme.html" style="text-decoration: none;"><font face="Arial" size="2" color="#5ecf99">About Me</font></a>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+
+  <!-- ========== ROW 3 : BODY ========== -->
+  <tr>
+
+    <!-- MAIN CONTENT -->
+    <td width="75%" valign="top" bgcolor="#eeffee">
+      <table width="95%" align="center" cellspacing="0" cellpadding="14" border="0">
+        <tr>
+          <td>
+
+            <h1><font face="Arial" color="#003322">Curriculum Vitae</font></h1>
+
+            <p><font face="Arial" size="3">
+              A complete overview of my personal background, academic qualifications,
+              work experience, and technical skills.
+              <small>(Last updated: May 2026)</small>
+            </font></p>
+
+            <p>__________[Ahmad Amzar &mdash; Curriculum Vitae]__________</p>
+
+
+            <!-- ======== PERSONAL DETAILS ======== -->
+            <h2><a name="personal"></a><font face="Arial" color="#003322">Personal Details</font></h2>
+
+            <table border="1"
+                   width="100%"
+                   cellspacing="5"
+                   cellpadding="10"
+                   bgcolor="#ffffff">
+              <tr>
+                <td colspan="2" align="center" bgcolor="#003322">
+                  <font face="Arial" color="#00e08a"><b>Personal Information</b></font>
+                </td>
+              </tr>
+              <tr bgcolor="#f0fff4">
+                <td width="35%"><font face="Arial" size="2"><b>Full Name</b></font></td>
+                <td><font face="Arial" size="2">Ahmad Amzar bin [Surname]</font></td>
+              </tr>
+              <tr>
+                <td><font face="Arial" size="2"><b>IC Number</b></font></td>
+                <td><font face="Arial" size="2">00-XXXXXX-XX-XXXX</font></td>
+              </tr>
+              <tr bgcolor="#f0fff4">
+                <td><font face="Arial" size="2"><b>Date of Birth</b></font></td>
+                <td><font face="Arial" size="2"><time datetime="2002-01-01">1 January 2002</time></font></td>
+              </tr>
+              <tr>
+                <td><font face="Arial" size="2"><b>Gender</b></font></td>
+                <td><font face="Arial" size="2">Male</font></td>
+              </tr>
+              <tr bgcolor="#f0fff4">
+                <td><font face="Arial" size="2"><b>Nationality</b></font></td>
+                <td><font face="Arial" size="2">Malaysian</font></td>
+              </tr>
+              <tr>
+                <td><font face="Arial" size="2"><b>Religion</b></font></td>
+                <td><font face="Arial" size="2">Islam</font></td>
+              </tr>
+              <tr bgcolor="#f0fff4">
+                <td><font face="Arial" size="2"><b>Address</b></font></td>
+                <td><font face="Arial" size="2">
+                  Putra Heights,<br />
+                  Subang Jaya,<br />
+                  Selangor, 47650,<br />
+                  Malaysia.
+                </font></td>
+              </tr>
+              <tr>
+                <td><font face="Arial" size="2"><b>Phone</b></font></td>
+                <td><font face="Arial" size="2">+60 1X-XXXXXXX</font></td>
+              </tr>
+              <tr bgcolor="#f0fff4">
+                <td><font face="Arial" size="2"><b>Email</b></font></td>
+                <td><font face="Arial" size="2">
+                  <a href="mailto:amzar@student.uitm.edu.my">amzar@student.uitm.edu.my</a>
+                </font></td>
+              </tr>
+            </table>
+
+            <br />
+
+
+            <!-- ======== EDUCATION ======== -->
+            <h2><a name="education"></a><font face="Arial" color="#003322">Education</font></h2>
+
+            <table border="1"
+                   width="100%"
+                   cellspacing="5"
+                   cellpadding="10"
+                   bgcolor="#ffffff">
+              <tr>
+                <td colspan="3" align="center" bgcolor="#003322">
+                  <font face="Arial" color="#00e08a"><b>Academic Qualifications</b></font>
+                </td>
+              </tr>
+              <tr align="center" bgcolor="#ccffdd">
+                <td width="20%"><font face="Arial" size="2"><b>Year</b></font></td>
+                <td width="45%"><font face="Arial" size="2"><b>Qualification</b></font></td>
+                <td width="35%"><font face="Arial" size="2"><b>Institution</b></font></td>
+              </tr>
+              <tr bgcolor="#f0fff4">
+                <td align="center"><font face="Arial" size="2">2022 &mdash; Present</font></td>
+                <td><font face="Arial" size="2">
+                  <b>Bachelor of Information Systems</b><br />
+                  <small>(Hons.) Intelligent Systems</small>
+                </font></td>
+                <td><font face="Arial" size="2">
+                  Universiti Teknologi MARA<br />
+                  <abbr title="Universiti Teknologi MARA">(UiTM)</abbr> Shah Alam
+                </font></td>
+              </tr>
+              <tr>
+                <td align="center"><font face="Arial" size="2">2020 &mdash; 2021</font></td>
+                <td><font face="Arial" size="2">
+                  <b>Sijil Tinggi Persekolahan Malaysia</b><br />
+                  <small><abbr title="Sijil Tinggi Persekolahan Malaysia">(STPM)</abbr></small>
+                </font></td>
+                <td><font face="Arial" size="2">
+                  [Your Secondary School Name]
+                </font></td>
+              </tr>
+              <tr bgcolor="#f0fff4">
+                <td align="center"><font face="Arial" size="2">2015 &mdash; 2019</font></td>
+                <td><font face="Arial" size="2">
+                  <b>Sijil Pelajaran Malaysia</b><br />
+                  <small><abbr title="Sijil Pelajaran Malaysia">(SPM)</abbr></small>
+                </font></td>
+                <td><font face="Arial" size="2">
+                  [Your Secondary School Name]
+                </font></td>
+              </tr>
+            </table>
+
+            <br />
+
+
+            <!-- ======== WORK EXPERIENCE ======== -->
+            <h2><a name="experience"></a><font face="Arial" color="#003322">Work Experience</font></h2>
+
+            <table border="1"
+                   width="100%"
+                   cellspacing="5"
+                   cellpadding="10"
+                   bgcolor="#ffffff">
+              <tr>
+                <td colspan="3" align="center" bgcolor="#003322">
+                  <font face="Arial" color="#00e08a"><b>Work / Internship Experience</b></font>
+                </td>
+              </tr>
+              <tr align="center" bgcolor="#ccffdd">
+                <td width="20%"><font face="Arial" size="2"><b>Year</b></font></td>
+                <td width="40%"><font face="Arial" size="2"><b>Position</b></font></td>
+                <td width="40%"><font face="Arial" size="2"><b>Organisation</b></font></td>
+              </tr>
+              <tr bgcolor="#f0fff4">
+                <td align="center"><font face="Arial" size="2">2025</font></td>
+                <td><font face="Arial" size="2">
+                  <b>Industrial Training</b><br />
+                  <small>IT / Web Development Department</small>
+                </font></td>
+                <td><font face="Arial" size="2">[Company Name], Selangor</font></td>
+              </tr>
+              <tr>
+                <td align="center"><font face="Arial" size="2">2024</font></td>
+                <td><font face="Arial" size="2">
+                  <b>Part-time Data Entry</b>
+                </font></td>
+                <td><font face="Arial" size="2">[Company Name], Kuala Lumpur</font></td>
+              </tr>
+            </table>
+
+            <br />
+
+
+            <!-- ======== SKILLS ======== -->
+            <h2><a name="skills"></a><font face="Arial" color="#003322">Skills</font></h2>
+
+            <!-- Technical skill tags -->
+            <p><font face="Arial" size="2"><b>Technical Skills:</b></font></p>
+
+            <table border="0" cellspacing="3" cellpadding="0">
+              <tr>
+                <td>
+                  <table border="1" cellspacing="0" cellpadding="6" bgcolor="#ddeeff">
+                    <tr><td><font face="Arial" size="2" color="#003366">HTML5</font></td></tr>
+                  </table>
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                  <table border="1" cellspacing="0" cellpadding="6" bgcolor="#ddeeff">
+                    <tr><td><font face="Arial" size="2" color="#003366">CSS</font></td></tr>
+                  </table>
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                  <table border="1" cellspacing="0" cellpadding="6" bgcolor="#ddeeff">
+                    <tr><td><font face="Arial" size="2" color="#003366">Adobe Photoshop</font></td></tr>
+                  </table>
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                  <table border="1" cellspacing="0" cellpadding="6" bgcolor="#ddeeff">
+                    <tr><td><font face="Arial" size="2" color="#003366">Database Basics</font></td></tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+            <br />
+
+            <!-- Soft skill tags -->
+            <p><font face="Arial" size="2"><b>Soft Skills:</b></font></p>
+
+            <table border="0" cellspacing="3" cellpadding="0">
+              <tr>
+                <td>
+                  <table border="1" cellspacing="0" cellpadding="6" bgcolor="#ccffdd">
+                    <tr><td><font face="Arial" size="2" color="#003322">MS Word</font></td></tr>
+                  </table>
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                  <table border="1" cellspacing="0" cellpadding="6" bgcolor="#ccffdd">
+                    <tr><td><font face="Arial" size="2" color="#003322">MS Excel</font></td></tr>
+                  </table>
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                  <table border="1" cellspacing="0" cellpadding="6" bgcolor="#ccffdd">
+                    <tr><td><font face="Arial" size="2" color="#003322">Teamwork</font></td></tr>
+                  </table>
+                </td>
+                <td>&nbsp;</td>
+                <td>
+                  <table border="1" cellspacing="0" cellpadding="6" bgcolor="#ccffdd">
+                    <tr><td><font face="Arial" size="2" color="#003322">Communication</font></td></tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+            <br />
+
+
+            <!-- ======== LANGUAGES ======== -->
+            <h2><font face="Arial" color="#003322">Languages</font></h2>
+
+            <table border="1"
+                   width="100%"
+                   cellspacing="5"
+                   cellpadding="10"
+                   bgcolor="#ffffff">
+              <tr>
+                <td colspan="2" align="center" bgcolor="#003322">
+                  <font face="Arial" color="#00e08a"><b>Language Proficiency</b></font>
+                </td>
+              </tr>
+              <tr align="center" bgcolor="#ccffdd">
+                <td width="50%"><font face="Arial" size="2"><b>Language</b></font></td>
+                <td width="50%"><font face="Arial" size="2"><b>Proficiency</b></font></td>
+              </tr>
+              <tr bgcolor="#f0fff4">
+                <td><font face="Arial" size="2">Bahasa Malaysia</font></td>
+                <td align="center"><font face="Arial" size="2"><b>Native</b></font></td>
+              </tr>
+              <tr>
+                <td><font face="Arial" size="2">English</font></td>
+                <td align="center"><font face="Arial" size="2">Proficient</font></td>
+              </tr>
+            </table>
+
+            <br />
+
+
+            <!-- ======== REFERENCES ======== -->
+            <h2><font face="Arial" color="#003322">References</font></h2>
+
+            <p><font face="Arial" size="3">
+              References are available upon request.
+            </font></p>
+
+            <br />
+
+            <!-- Internal links -->
+            <h2><font face="Arial" color="#003322">Internal Links</font></h2>
+            <font face="Arial" size="3">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cv.html">CV</a> &mdash; You are here</li>
+                <li><a href="cocurriculum.html">Co-curriculum</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+              </ul>
+            </font>
+
+            <!-- Anchor links -->
+            <p><font face="Arial" size="2">
+              <small>
+                Jump to:
+                <a href="#personal">Personal Details</a> &nbsp;|&nbsp;
+                <a href="#education">Education</a> &nbsp;|&nbsp;
+                <a href="#experience">Experience</a> &nbsp;|&nbsp;
+                <a href="#skills">Skills</a>
+              </small>
+            </font></p>
+
+            <br />
+
+            <!-- External links -->
+            <h2><font face="Arial" color="#003322">External Links</font></h2>
+            <font face="Arial" size="3">
+              <ul>
+                <li><a href="https://fis.uitm.edu.my/" target="_blank">FSM UiTM Official Website</a></li>
+                <li><a href="https://www.linkedin.com/" target="_blank">LinkedIn</a></li>
+                <li><a href="https://www.w3schools.com/" target="_blank">W3Schools</a></li>
+              </ul>
+            </font>
+
+            <br />
+
+            <!-- Thumbnail image link -->
+            <h2><font face="Arial" color="#003322">Portfolio Preview</font></h2>
+            <p><font face="Arial" size="3">Click the thumbnail to visit my portfolio:</font></p>
+            <a href="portfolio.html">
+              <img src="images/thumb_portfolio.jpg"
+                   width="100"
+                   height="70"
+                   alt="Thumbnail linking to Portfolio page" />
+            </a>
+
+            <br /><br />
+
+            <article>
+              <h2><font face="Arial" color="#003322">Did You Know?</font></h2>
+              <p><font face="Arial" size="3">
+                The <abbr title="Universiti Teknologi MARA">UiTM</abbr> Shah Alam campus
+                is one of the <b>largest university campuses</b> in Malaysia,
+                covering over <mark>1,000 acres</mark> of land.
+              </font></p>
+              <footer>
+                <address>
+                  <font face="Arial" size="2">
+                    Further inquiries: <a href="mailto:amzar@student.uitm.edu.my">amzar@student.uitm.edu.my</a>
+                  </font>
+                </address>
+              </footer>
+            </article>
+
+            <br />
+
+          </td>
+        </tr>
+      </table>
+    </td>
+    <!-- end MAIN CONTENT -->
+
+
+    <!-- SIDEBAR -->
+    <td width="25%" valign="top" bgcolor="#ccffdd">
+      <table width="90%" align="center" cellspacing="0" cellpadding="10" border="0">
+        <tr>
+          <td>
+
+            <h3><font face="Arial" color="#003322">Navigation</font></h3>
+            <font face="Arial" size="2">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cv.html"><b>CV</b></a></li>
+                <li><a href="cocurriculum.html">Co-curriculum</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="aboutme.html">About Me</a></li>
+              </ul>
+            </font>
+
+            <hr />
+
+            <h3><font face="Arial" color="#003322">CV Sections</font></h3>
+            <font face="Arial" size="2">
+              <ol>
+                <li><a href="#personal">Personal Details</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+              </ol>
+            </font>
+
+            <hr />
+
+            <h3><font face="Arial" color="#003322">Quick Facts</font></h3>
+            <font face="Arial" size="2">
+              <ul>
+                <li>UiTM &mdash; SI2622A</li>
+                <li>Information Systems</li>
+                <li>Graduating 2026</li>
+                <li>Selangor, Malaysia</li>
+              </ul>
+            </font>
+
+            <hr />
+
+            <h3><font face="Arial" color="#003322">External Links</font></h3>
+            <font face="Arial" size="2">
+              <ul>
+                <li><a href="https://fis.uitm.edu.my/" target="_blank">FSM UiTM</a></li>
+                <li><a href="https://www.linkedin.com/" target="_blank">LinkedIn</a></li>
+                <li><a href="https://www.w3schools.com/" target="_blank">W3Schools</a></li>
+              </ul>
+            </font>
+
+          </td>
+        </tr>
+      </table>
+    </td>
+    <!-- end SIDEBAR -->
+
+  </tr>
+  <!-- end ROW 3 -->
+
+
+  <!-- ========== ROW 4 : FOOTER ========== -->
+  <tr>
+    <td colspan="2" align="center" bgcolor="#003322">
+
+      <br />
+      <p><font face="Arial" size="2" color="#7fcca8">
+        Copyright &copy; 2026 Ahmad Amzar &bull;
+        Universiti Teknologi MARA (UiTM). All Rights Reserved.<br />
+        Recommended browser: Google Chrome &bull;
+        Best viewed at 1280 &times; 720 resolution<br />
+        Last update: <time datetime="2026-05-18">18 May 2026</time>
+      </font></p>
+      <p><a href="aboutme.html"><font face="Arial" size="2" color="#00e08a">About Me</font></a></p>
+      <br />
+
+    </td>
+  </tr>
+
+
+</table>
+
+</body>
+</html>
