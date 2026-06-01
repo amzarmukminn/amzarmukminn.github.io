@@ -1,0 +1,18 @@
+name: Generate xml sitemap
+on:
+  push:
+    branches: [ main ] # Change to "master" if your repository uses master
+jobs:
+  sitemap_job:
+    runs-on: ubuntu-latest
+    name: Generate a sitemap
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Generate the sitemap
+        id: sitemap
+        uses: cicirello/generate-sitemap@v1
+        with:
+          base-url-path: https://amzarmukminn.github.io/ # Replace with your actual live URL
