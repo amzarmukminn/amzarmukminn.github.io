@@ -4,142 +4,449 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site Under Maintenance</title>
-    <!-- Import Cairo Font for Modern Arabic Typography -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;800&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; cursor:none !important; }
+
+        :root {
+            --gold:    #C9A96E;
+            --gold-lt: #E8D5A3;
+            --gold-dk: #8B6A35;
+            --ink:     #0D1117;
+            --ink2:    #111820;
+            --surface: rgba(255,255,255,0.03);
+            --text:    #D4C5A9;
+            --text2:   #7A6A52;
+            --green:   #1A3A2E;
         }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0d1117;
-            color: #c9d1d9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            background: var(--ink);
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--text);
+            min-height: 100vh;
             overflow: hidden;
-            text-align: center;
-        }
-
-        /* Container Layout */
-        .maintenance-container {
-            padding: 20px;
-            max-width: 600px;
-            z-index: 2;
-        }
-
-        /* Animated Gear Graphic */
-        .gear-container {
-            margin-bottom: 30px;
-        }
-        .gear {
-            font-size: 80px;
-            display: inline-block;
-            animation: spin 4s linear infinite;
-            color: #58a6ff;
-        }
-
-        /* Modern Arabic Name Styling & Animation */
-        .brand-name-arabic {
-            font-family: 'Cairo', sans-serif;
-            font-size: 3.5rem; /* Slightly larger for Arabic script clarity */
-            font-weight: 800;
-            direction: rtl; /* Ensures proper Arabic text rendering direction */
-            letter-spacing: 0px; /* Arabic looks best without letter spacing */
-            background: linear-gradient(45deg, #58a6ff, #bc8cff, #58a6ff);
-            background-size: 200% auto;
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shine 3s linear infinite;
-            margin-bottom: 15px;
-        }
-
-        /* Heading and Text */
-        h1 {
-            font-size: 2rem;
-            color: #ffffff;
-            margin-bottom: 15px;
-        }
-        p {
-            font-size: 1.1rem;
-            color: #8b949e;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-
-        /* Pulsing Status Dot */
-        .status-badge {
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            background-color: #161b22;
-            padding: 8px 16px;
-            border-radius: 20px;
-            border: 1px solid #30363d;
-            font-size: 0.9rem;
-        }
-        .dot {
-            width: 8px;
-            height: 8px;
-            background-color: #238636;
-            border-radius: 50%;
-            margin-right: 10px;
-            box-shadow: 0 0 0 0 rgba(35, 134, 54, 0.7);
-            animation: pulse 1.5s infinite;
+            justify-content: center;
         }
 
-        /* Keyframe Animations */
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        /* ── CURSOR ── */
+        #c-dot {
+            position: fixed; z-index: 9999; pointer-events: none;
+            width: 6px; height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+            transform: translate(-50%,-50%);
+            transition: transform .08s, background .2s;
+            box-shadow: 0 0 8px var(--gold);
         }
-        @keyframes shine {
-            to { background-position: 200% center; }
+        #c-ring {
+            position: fixed; z-index: 9998; pointer-events: none;
+            width: 32px; height: 32px;
+            border: 1px solid rgba(201,169,110,.45);
+            border-radius: 50%;
+            transform: translate(-50%,-50%);
+        }
+        #c-trail-wrap {
+            position: fixed; inset: 0; z-index: 9990; pointer-events: none;
+        }
+        .c-spark {
+            position: absolute;
+            width: 3px; height: 3px;
+            border-radius: 50%;
+            background: var(--gold);
+            pointer-events: none;
+            transform: translate(-50%,-50%);
+        }
+
+        /* ── CANVAS ── */
+        #bg-canvas {
+            position: fixed; inset: 0; z-index: 0;
+        }
+
+        /* ── GEOMETRIC OVERLAY ── */
+        #geo-svg {
+            position: fixed; inset: 0; z-index: 1;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            opacity: .18;
+        }
+
+        /* ── RIPPLE LAYER ── */
+        #ripple-layer {
+            position: fixed; inset: 0; z-index: 2; pointer-events: none;
+            overflow: hidden;
+        }
+        .ripple {
+            position: absolute;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            transform: translate(-50%,-50%) scale(0);
+            animation: rippleOut 1.6s ease-out forwards;
+        }
+        @keyframes rippleOut {
+            0%   { transform: translate(-50%,-50%) scale(0); opacity: .7; }
+            100% { transform: translate(-50%,-50%) scale(1);  opacity: 0; }
+        }
+
+        /* ── CARD ── */
+        .card {
+            position: relative; z-index: 10;
+            max-width: 580px; width: 90%;
+            padding: 56px 48px;
+            background: linear-gradient(160deg, rgba(26,40,30,.85) 0%, rgba(13,17,23,.9) 100%);
+            border: 1px solid rgba(201,169,110,.18);
+            border-radius: 2px;
+            text-align: center;
+            animation: fadeUp .9s ease both;
+        }
+        @keyframes fadeUp {
+            from { opacity:0; transform:translateY(24px); }
+            to   { opacity:1; transform:translateY(0); }
+        }
+
+        /* top + bottom border accent */
+        .card::before, .card::after {
+            content: '';
+            position: absolute; left: 20px; right: 20px; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        .card::before { top: 0; }
+        .card::after  { bottom: 0; }
+
+        /* ── STAR & CRESCENT SVG ICON ── */
+        .icon-wrap {
+            width: 72px; height: 72px;
+            margin: 0 auto 28px;
+            position: relative;
+        }
+        .icon-wrap svg {
+            width: 100%; height: 100%;
+            animation: spinSlow 18s linear infinite;
+        }
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+
+        /* ── ARABIC NAME ── */
+        .arabic {
+            font-family: 'Cairo', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            direction: rtl;
+            color: var(--gold);
+            letter-spacing: .02em;
+            margin-bottom: 6px;
+            text-shadow: 0 0 40px rgba(201,169,110,.25);
+        }
+
+        /* ── DIVIDER ── */
+        .divider {
+            display: flex; align-items: center; gap: 14px;
+            margin: 18px auto 20px;
+            max-width: 340px;
+        }
+        .divider-line { flex: 1; height: 1px; background: rgba(201,169,110,.25); }
+        .divider-diamond {
+            width: 6px; height: 6px;
+            background: var(--gold);
+            transform: rotate(45deg);
+            flex-shrink: 0;
+        }
+
+        /* ── HEADING ── */
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+            font-weight: 600;
+            color: #EAE0CC;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1rem, 2.2vw, 1.18rem);
+            color: var(--text2);
+            line-height: 1.75;
+            margin-bottom: 34px;
+            max-width: 440px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ── STATUS ── */
+        .status {
+            display: inline-flex; align-items: center; gap: 10px;
+            font-family: 'Cairo', sans-serif;
+            font-size: .78rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--text2);
+            padding: 8px 20px;
+            border: 1px solid rgba(201,169,110,.15);
+            border-radius: 1px;
+        }
+        .pulse-dot {
+            width: 7px; height: 7px;
+            background: #2ea877;
+            border-radius: 50%;
+            flex-shrink: 0;
+            animation: pulse 2s ease-in-out infinite;
         }
         @keyframes pulse {
-            0% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(35, 134, 54, 0.7);
-            }
-            70% {
-                transform: scale(1);
-                box-shadow: 0 0 0 10px rgba(35, 134, 54, 0);
-            }
-            100% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(35, 134, 54, 0);
-            }
+            0%,100% { box-shadow: 0 0 0 0 rgba(46,168,119,.5); }
+            50%      { box-shadow: 0 0 0 6px rgba(46,168,119,0); }
+        }
+
+        /* ── CORNER MARKS ── */
+        .corner {
+            position: absolute;
+            width: 14px; height: 14px;
+            border-color: rgba(201,169,110,.4);
+            border-style: solid;
+        }
+        .corner-tl { top:10px; left:10px;  border-width:1px 0 0 1px; }
+        .corner-tr { top:10px; right:10px; border-width:1px 1px 0 0; }
+        .corner-bl { bottom:10px; left:10px;  border-width:0 0 1px 1px; }
+        .corner-br { bottom:10px; right:10px; border-width:0 1px 1px 0; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 480px) {
+            .card { padding: 40px 24px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="maintenance-container">
-        <!-- Animated Icon -->
-        <div class="gear-container">
-            <div class="gear">⚙️</div>
-        </div>
+<!-- Cursor -->
+<div id="c-dot"></div>
+<div id="c-ring"></div>
+<div id="c-trail-wrap"></div>
 
-        <!-- Custom Arabic Name (Replace 'أحمد' with your name) -->
-        <div class="brand-name-arabic">محمد أمزار مؤمن</div>
+<!-- Particle / ripple layers -->
+<canvas id="bg-canvas"></canvas>
+<div id="ripple-layer"></div>
 
-        <!-- Maintenance Messages -->
-        <h1>We'll Be Back Soon</h1>
-        <p>Our website is currently undergoing scheduled maintenance to improve your experience. We apologize for the inconvenience and appreciate your patience.</p>
+<!-- Islamic geometric overlay -->
+<svg id="geo-svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="star8" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+      <!-- 8-pointed star tile -->
+      <polygon points="40,4 47,28 70,12 56,33 80,34 59,46 72,68 47,57 40,76 33,57 8,68 21,46 0,34 24,33 10,12 33,28"
+               fill="none" stroke="#C9A96E" stroke-width=".6"/>
+      <rect x="28" y="28" width="24" height="24" transform="rotate(45 40 40)"
+            fill="none" stroke="#C9A96E" stroke-width=".4"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#star8)"/>
+</svg>
 
-        <!-- Live Status Indicator -->
-        <div class="status-badge">
-            <span class="dot"></span>
-            System upgrade in progress
-        </div>
+<!-- Card -->
+<div class="card">
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-tr"></div>
+    <div class="corner corner-bl"></div>
+    <div class="corner corner-br"></div>
+
+    <!-- Rotating crescent + star -->
+    <div class="icon-wrap">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Outer ring of diamonds -->
+            <g stroke="#C9A96E" stroke-width=".7" opacity=".55">
+                <polygon points="40,6 42,12 40,18 38,12" />
+                <polygon points="74,40 68,42 62,40 68,38" />
+                <polygon points="40,74 38,68 40,62 42,68" />
+                <polygon points="6,40 12,38 18,40 12,42" />
+                <polygon points="64.4,15.6 62,21.8 56.6,22.8 61,18.2" />
+                <polygon points="64.4,64.4 58.2,62 57.2,56.6 61.8,61" />
+                <polygon points="15.6,64.4 18,58.2 23.4,57.2 19,62" />
+                <polygon points="15.6,15.6 21.8,18 22.8,23.4 18.2,19" />
+            </g>
+            <!-- Crescent -->
+            <path d="M48 20 A20 20 0 1 0 48 60 A14 14 0 1 1 48 20Z"
+                  fill="#C9A96E" opacity=".9"/>
+            <!-- Star -->
+            <polygon points="0,-6 1.8,-1.8 6,-1.8 2.8,1 4,6 0,3 -4,6 -2.8,1 -6,-1.8 -1.8,-1.8"
+                     fill="#C9A96E"
+                     transform="translate(40.5,40)" />
+        </svg>
     </div>
 
+    <div class="arabic">محمد أمزار مؤمن</div>
+
+    <div class="divider">
+        <div class="divider-line"></div>
+        <div class="divider-diamond"></div>
+        <div class="divider-line"></div>
+    </div>
+
+    <h1>We'll Be Back Soon</h1>
+    <p>Our website is currently undergoing scheduled maintenance to improve your experience. We appreciate your patience and will return shortly, by the will of Allah.</p>
+
+    <div class="status">
+        <div class="pulse-dot"></div>
+        System upgrade in progress
+    </div>
+</div>
+
+<script>
+// ── CANVAS PARTICLES ──
+const canvas = document.getElementById('bg-canvas');
+const ctx    = canvas.getContext('2d');
+let W, H;
+
+function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+// Floating gold particles
+const particles = Array.from({length: 90}, () => ({
+    x: Math.random() * innerWidth,
+    y: Math.random() * innerHeight,
+    r: .4 + Math.random() * 1.2,
+    vx: (Math.random() - .5) * .18,
+    vy: -.1 - Math.random() * .25,
+    alpha: .1 + Math.random() * .4,
+    pulse: Math.random() * Math.PI * 2,
+    pulseSpeed: .008 + Math.random() * .012
+}));
+
+// Mouse-attracted particles
+let mx = W / 2, my = H / 2;
+
+function drawFrame() {
+    ctx.clearRect(0, 0, W, H);
+
+    // Dark vignette
+    const vig = ctx.createRadialGradient(W/2,H/2,H*.1, W/2,H/2,H*.8);
+    vig.addColorStop(0, 'rgba(13,17,23,0)');
+    vig.addColorStop(1, 'rgba(13,17,23,.7)');
+    ctx.fillStyle = vig;
+    ctx.fillRect(0,0,W,H);
+
+    // Ambient glow at cursor
+    const glow = ctx.createRadialGradient(mx,my,0, mx,my,220);
+    glow.addColorStop(0, 'rgba(201,169,110,.055)');
+    glow.addColorStop(1, 'rgba(201,169,110,0)');
+    ctx.fillStyle = glow;
+    ctx.fillRect(0,0,W,H);
+
+    particles.forEach(p => {
+        p.pulse += p.pulseSpeed;
+        const alpha = p.alpha * (.7 + .3 * Math.sin(p.pulse));
+
+        // Slight attraction toward cursor
+        const dx = mx - p.x, dy = my - p.y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < 200) {
+            p.vx += dx / dist * .004;
+            p.vy += dy / dist * .004;
+        }
+
+        // Dampen
+        p.vx *= .992; p.vy *= .992;
+        p.x += p.vx; p.y += p.vy;
+
+        if (p.y < -5)  p.y = H + 5;
+        if (p.y > H+5) p.y = -5;
+        if (p.x < -5)  p.x = W + 5;
+        if (p.x > W+5) p.x = -5;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+        ctx.fillStyle = `rgba(201,169,110,${alpha})`;
+        ctx.fill();
+    });
+
+    requestAnimationFrame(drawFrame);
+}
+drawFrame();
+
+// ── CURSOR ──
+const dot  = document.getElementById('c-dot');
+const ring = document.getElementById('c-ring');
+let rx = -100, ry = -100;
+const sparks = [];
+
+document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx + 'px';
+    dot.style.top  = my + 'px';
+    spawnSpark(mx, my);
+});
+
+// Trailing ring
+(function animRing() {
+    rx += (mx - rx) * .10;
+    ry += (my - ry) * .10;
+    ring.style.left = rx + 'px';
+    ring.style.top  = ry + 'px';
+    requestAnimationFrame(animRing);
+})();
+
+// Gold spark trail
+const trailWrap = document.getElementById('c-trail-wrap');
+let lastSpark = 0;
+function spawnSpark(x, y) {
+    const now = Date.now();
+    if (now - lastSpark < 40) return;
+    lastSpark = now;
+
+    const el = document.createElement('div');
+    el.className = 'c-spark';
+    const size = 2 + Math.random() * 3;
+    el.style.cssText = `
+        left:${x}px; top:${y}px;
+        width:${size}px; height:${size}px;
+        opacity:.8;
+        box-shadow: 0 0 4px #C9A96E;
+        transition: opacity .6s ease, transform .6s ease;
+    `;
+    trailWrap.appendChild(el);
+    requestAnimationFrame(() => {
+        const angle = Math.random() * Math.PI * 2;
+        const dist  = 10 + Math.random() * 20;
+        el.style.opacity   = '0';
+        el.style.transform = `translate(calc(-50% + ${Math.cos(angle)*dist}px), calc(-50% + ${Math.sin(angle)*dist}px))`;
+    });
+    setTimeout(() => el.remove(), 700);
+}
+
+// ── RIPPLE ON CLICK ──
+document.addEventListener('click', e => {
+    const el = document.createElement('div');
+    el.className = 'ripple';
+    const size = 80 + Math.random() * 60;
+    el.style.cssText = `
+        left:${e.clientX}px; top:${e.clientY}px;
+        width:${size}px; height:${size}px;
+    `;
+    document.getElementById('ripple-layer').appendChild(el);
+    setTimeout(() => el.remove(), 1700);
+});
+
+// ── HOVER CURSOR EXPAND ──
+document.querySelectorAll('.card, .status, .icon-wrap').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        ring.style.transform = 'translate(-50%,-50%) scale(1.6)';
+        ring.style.borderColor = 'rgba(201,169,110,.75)';
+        dot.style.transform = 'translate(-50%,-50%) scale(1.4)';
+    });
+    el.addEventListener('mouseleave', () => {
+        ring.style.transform = 'translate(-50%,-50%) scale(1)';
+        ring.style.borderColor = 'rgba(201,169,110,.45)';
+        dot.style.transform = 'translate(-50%,-50%) scale(1)';
+    });
+});
+</script>
 </body>
 </html>
